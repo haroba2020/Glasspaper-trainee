@@ -1,8 +1,12 @@
+import Main from "./Main";
+import Navbar from "./Navbar";
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Working</h1>
+        <Navbar/>
+        <Main/>
       </header>
     </div>
   );

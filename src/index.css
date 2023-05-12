@@ -11,3 +11,65 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1, h2, h3, h4, ul, li, a, p, input, label, button, div, footer{
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  color: #444;
+}
+header h1{
+  font-size: 3em;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 120px;
+  margin: 20px;
+}
+nav ul{
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin-right: 30px;
+}
+nav li{
+  margin-left: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1em;
+  display: block;
+  padding: 10px 16px;
+  letter-spacing: 2px;
+}
+
+.card{
+  width: 500px;
+  height: 140px;
+  border: 1px solid black;
+}
+.card ul{
+  list-style-type: none; /* Remove the bullets/dots */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */}
+.card-title{
+  display: flex;
+}
+.card-title h2{
+  padding: 10px;
+}
+.card-footer{
+  display: flex;
+}
+.card-wrapper{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px; /* Add the desired spacing value */
+}
+@media (max-width: 1600px) {
+  .card-wrapper {
+    justify-content: flex-start;
+  }
+}
