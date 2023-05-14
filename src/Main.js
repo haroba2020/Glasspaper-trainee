@@ -1,10 +1,17 @@
 import { useState, useEffect, useRef } from "react"
+import Navbar from "./Navbar";
 import Card from "./Card";
 import persons from "./persons"
 const Main = () => {
-    console.log(persons)
+    const [value, setValue] = useState('');
+
+    const handleValueChange = (newValue) => {
+      setValue(newValue);
+      console.log(value + ' new value')
+    };
     return (
         <div className="main">
+            <Navbar onValueChange={handleValueChange} />
             <div className="card-wrapper">
                 {persons.map((person) => (
                     <Card
