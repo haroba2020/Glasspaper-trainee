@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Card from "./Card";
 import persons from "./persons";
+import Footer from "./Footer";
 
 const Main = () => {
   const [value, setValue] = useState("");
@@ -14,7 +15,11 @@ const Main = () => {
     const filtered = persons.filter((person) =>
       person.name.toLowerCase().includes(value.toLowerCase())
     );
-    setFilteredPersons(filtered);
+    if(filtered<=0){
+        setFilteredPersons([false, value])
+    }else{
+        setFilteredPersons(filtered);
+    }
   }, [value]);
 
   const handleValueChange = (newValue) => {
@@ -23,18 +28,21 @@ const Main = () => {
 
   return (
     <div className="main">
-      <Navbar onValueChange={handleValueChange} />
-      <div className="card-wrapper">
-        {filteredPersons.map((person) => (
-          <Card
-            key={person.id}
-            name={person.name}
-            age={person.age}
-            address={person.address}
-            hobbies={person.hobbies}
-          />
-        ))}
-      </div>
+        <div className="main-wrap">
+            <Navbar onValueChange={handleValueChange} />
+            <div className="card-wrapper">
+                {filteredPersons[0] && filteredPersons.map((person) => (
+                <Card
+                    key={person.id}
+                    name={person.name}
+                    age={person.age}
+                    address={person.address}
+                    hobbies={person.hobbies}
+                />
+                )) || <h1>User not found with {filteredPersons} </h1> }
+            </div>        
+        </div>
+        <Footer/>
     </div>
   );
 };
